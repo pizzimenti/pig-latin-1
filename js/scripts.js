@@ -25,3 +25,17 @@ var quWords = function(englishWord) {
     return englishWord.slice(2) + englishWord[0] + englishWord[1] + "ay"
   }
 };
+
+$(function(){
+ $('form#latin').submit(function(event){
+   var englishWord = $("input#word").val();
+   var translatedMessage = pigLatin(englishWord);
+
+   $(".translation").text(translatedMessage);
+
+   $('#result').show();
+
+   event.preventDefault();
+  });
+
+});
