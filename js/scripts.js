@@ -8,8 +8,10 @@ var pigLatin = function(englishWord) {
   }
   if (startsWithVowel) {
   var translatedWord = englishWord;
-} else {
+} else if (englishWord[1] === vowels[0]) {
   var translatedWord = englishWord.slice(1) + englishWord[0];
-  }
+} else {
+  var translatedWord = englishWord.slice(2) + englishWord[0] + englishWord[1];
+}
  return translatedWord + 'ay';
 };
