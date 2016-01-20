@@ -1,17 +1,27 @@
 var pigLatin = function(englishWord) {
-  var vowels = ['a', 'e', 'i', 'o', 'u'];
-   for (var i = 0; i < vowels.length; i++) {
-     if (englishWord[0] === vowels[i]) {
-     var startsWithVowel = true;
-     break;
+  var splitAt = indexOfFirstVowel(englishWord);
+  return englishWord.slice(splitAt) + englishWord.slice(0, splitAt) + "ay";
+};
+
+var indexOfFirstVowel = function(word) {
+ var vowels = ['a', 'e', 'i', 'o', 'u'];
+ var letters = word.split("");
+
+ for (var i = 0; i < letters.length; i++) {
+  for (var j = 0; j < vowels.length; j++) {
+    if (letters[i] === vowels[j]) {
+       return i;
+      }
     }
   }
-  if (startsWithVowel) {
-  var translatedWord = englishWord;
-} else if (englishWord[1] === vowels[0]) {
-  var translatedWord = englishWord.slice(1) + englishWord[0];
-} else {
-  var translatedWord = englishWord.slice(2) + englishWord[0] + englishWord[1];
-}
- return translatedWord + 'ay';
+};
+
+var quWords = function(englishWord) {
+  var squ = 'squ';
+  var qu = 'qu';
+  if (englishWord[0] + englishWord[1] + englishWord[2] === squ) {
+    return englishWord.slice(3) + englishWord[0] + englishWord[1] + englishWord[2] + "ay";
+  } else {
+    return englishWord.slice(2) + englishWord[0] + englishWord[1] + "ay"
+  }
 };
