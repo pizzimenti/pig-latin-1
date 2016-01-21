@@ -3,6 +3,10 @@ describe("pigLatin", function() {
    expect(pigLatin("apple")).to.equal("appleay");
   });
 
+
+// This is where your "quWorld" function would have to execute.
+// We suspect it's failing on your front end because 'q' is treated like any other cosonant in this function before your quWords function ever gets called
+
   it("adds 'ay' to the end of a word that starts with any vowel", function() {
     expect(pigLatin("english")).to.equal("englishay");
   });
